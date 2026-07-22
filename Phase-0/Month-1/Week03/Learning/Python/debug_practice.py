@@ -15,6 +15,7 @@ def remove_duplicates(lst):
             result.remove(item)
     return result
 
+
 # Done
 def get_average(numbers):
     return sum(numbers) / len(numbers)

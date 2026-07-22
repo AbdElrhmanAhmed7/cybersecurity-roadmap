@@ -24,7 +24,6 @@ class SecurityToolkit:
     def logs(self, log):
         self._logs = log
 
-
     def scan(self, target):
         if not target:
             return None
@@ -64,11 +63,3 @@ class SecurityToolkit:
         else:
             return True
         
-
-tool = SecurityToolkit("Scanner", "3.2")
-
-corrupt_file = "corrupt.json"
-with open(corrupt_file, 'w') as f:
-    f.write("This is NOT valid JSON! {")      
-result = tool.load_results(corrupt_file)
-

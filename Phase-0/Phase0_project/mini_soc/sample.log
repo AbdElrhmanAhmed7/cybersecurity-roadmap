@@ -1,0 +1,7 @@
+2026-07-10 09:00:01 INFO service started
+2026-07-10 09:03:12 WARNING disk usage at 85 percent
+2026-07-10 09:03:47 ERROR connection refused on port 443
+2026-07-10 09:10:22 ERROR unauthorized access attempt on admin panel
+2026-07-10 09:15:03 WARNING phishing email reported by 12 users
+2026-07-10 09:20:45 ERROR ransomware detected on workstation-14
+2026-07-10 09:25:00 INFO heartbeat ok

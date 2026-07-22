@@ -68,6 +68,14 @@ class SecurityIncident:
         priority = {"LOW": 2.0, "MEDIUM": 4.5, "HIGH": 7.5, "CRITICAL": 10}
         return priority[self.severity]
     
+    def __str__(self):
+        return f"Incident_id : {self.incident_id}, Name : {self.incident_title}, priority_score : {self._base_priority_score()}"
+    
+    def __repr__(self):
+        return f"('{self.incident_id}', '{self.assigned_analyst}', '{self._base_priority_score()}')"
+
+
+    
 class PhishingIncident(SecurityIncident):
     def __init__(self, incident_title, assigned_analyst, num_emails_sent):
         super().__init__(incident_title, assigned_analyst)
