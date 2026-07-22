@@ -14,7 +14,6 @@ Each menu option is its own small function -- keeps main() itself to
 just "loop, read a choice, dispatch." Fill in the TODOs; the loop
 below is already complete since it's just plumbing.
 """
-from os import path
 from pathlib import Path
 from password_vault import *
 from log_analyzer import *
@@ -48,7 +47,8 @@ def handle_add_password(vault : PasswordVault):
     if entery.validate():
         vault.add_entry(entery)
         print("Password added successfully.")
-    print("Week password!")
+    else:
+        print("Week password!")
 
 
 def handle_list_vault(vault : PasswordVault):
@@ -67,7 +67,7 @@ def handle_load_log():
     returns [] in that case.
     Returns: the list of (timestamp, level, message) tuples.
     """
-    file_name = path.abspath(Path(input("File name : ")))
+    file_name = Path.absolute(Path(input("File name : ")))
     
     parsed_lines = []
     try:
@@ -106,12 +106,16 @@ def handle_list_incidents(incident_log : IncidentLog):
     for i, incident in enumerate(sort_incidents_by_priority(incident_log.incidents)):
         print(f"{i}. {incident}")
 
+def make_dir(file_path):
+    file_path.parent.mkdir(parents=True, exist_ok=True)
 
 def handle_save(vault : PasswordVault, incident_log: IncidentLog):
     """Prompts for two paths (or use fixed data/vault.json, data/incidents.json)
     and calls vault.save_results(...) and incident_log.save_results(...)."""
-    vault_path = path.abspath(Path("data/vault.json"))
-    incident_path = path.abspath(Path("data/incidents.json"))
+    vault_path = Path.absolute(Path("data/vault.json"))
+    incident_path = Path.absolute(Path("data/incidents.json"))
+    make_dir(vault_path)
+    make_dir(incident_path)
     # vault_path = path.abspath(Path(input("Vault path: ")))
     # incident_path = path.abspath(Path(input("Incident path: ")))
     vault.save_results(vault_path)
@@ -122,8 +126,8 @@ def handle_load(vault : PasswordVault, incident_log: IncidentLog):
     """Same idea as handle_save, but calling load_results on both."""
     # vault_path = path.abspath(Path(input("Vault path: ")))
     # incident_path = path.abspath(Path(input("Incident path: ")))
-    vault_path = path.abspath(Path("data/vault.json"))
-    incident_path = path.abspath(Path("data/incidents.json"))
+    vault_path = Path.absolute(Path("data/vault.json"))
+    incident_path = Path.absolute(Path("data/incidents.json"))
     vault.load_results(vault_path)
     incident_log.load_results(incident_path)
 
