@@ -1,4 +1,4 @@
-## Resources for Week 03
+## Resources for Phase 0 - Week 03
 
 - [Python Object Oriented Programming (OOP) - Full Course for Beginners](https://www.youtube.com/watch?v=iLRZi0Gu8Go)
 

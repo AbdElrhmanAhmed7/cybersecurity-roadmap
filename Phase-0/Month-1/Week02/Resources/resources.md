@@ -1,4 +1,4 @@
-## Resources for Week 02
+## Resources for Phase 0 - Week 02
 
 - [Automate the Boring Stuff with Python 3rd edition chapter 7 [R] ](https://automatetheboringstuff.com/3e/chapter7.html)
 
